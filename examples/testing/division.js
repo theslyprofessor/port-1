@@ -53,7 +53,7 @@ function run(){
 	pd.write(tests[i].input.join(';\n') + ';\n');
 }
 
-var pd = new port({
+var pd = port({
 	'read': 8105, // [netsend]
 	'write': 8106, // [netreceive]
 	'flags': {
