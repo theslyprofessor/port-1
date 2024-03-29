@@ -2,9 +2,8 @@
 // node examples/test-division.js
 // or node test-division.js
 
-var path = require('path'),
-	print = require('util').print;
-	port = require('../../port');
+import path from 'path';
+import port from '../../port.js';
 
 var dir = path.dirname(path.relative(process.cwd(), process.argv[1]));
 
@@ -67,10 +66,10 @@ var pd = port({
 }).on('stderr', function(buffer){
 	var data = buffer.toString(), result = data.match(/^result:\s(.+)/);
 	if (!!result){
-		if (result[1] == tests[i].expect) print('\u001B[32m', 'PASSED');
-		else print('\u001B[31m', 'FAILED');
+		if (result[1] == tests[i].expect) console.log('\u001B[32m', 'PASSED');
+		else console.log('\u001B[31m', 'FAILED');
 		
-		print('\u001B[0m', ' (' + i + ') ');
+		console.log('\u001B[0m', ' (' + i + ') ');
 		
 		console.log('input:', tests[i].input.join('; ') + ';',
 			'expected:', tests[i].expect, 'got:', result[1]
@@ -79,12 +78,12 @@ var pd = port({
 	}
 	var error = data.match(/^error:(.*)/);
 	if (error){
-		print('\u001B[31m', 'ERROR');
-		print('\u001B[0m', ' (' + i + ') ');
+		console.log('\u001B[31m', 'ERROR');
+		console.log('\u001B[0m', ' (' + i + ') ');
 		console.log(error[1]);
 		run();
 	} else {
-		print('\u001B[33m', data, '\u001B[0m');
+		console.log('\u001B[33m', data, '\u001B[0m');
 	}
 })
 .on('connect', run)

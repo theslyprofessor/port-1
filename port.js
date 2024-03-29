@@ -1,6 +1,6 @@
-var net = require('net'),
-	spawn = require('child_process').spawn,
-	event = require('events').EventEmitter;
+import net from 'net';
+import { spawn } from 'child_process';
+import { EventEmitter as event } from 'events';
 
 
 function Port(options){
@@ -146,4 +146,4 @@ Port.prototype.destroy = function(){
 };
 
 
-module.exports = Port;
+export default Port;
