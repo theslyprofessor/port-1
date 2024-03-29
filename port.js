@@ -21,7 +21,7 @@ Port.prototype.setOptions = function(options){
 		max: 1, // max connections
 		basepath: '', // prefix -path flags
 		pd: (('darwin' == process.platform)
-			? '/Applications/Pd-0.45-5-64bit.app/Contents/Resources/bin/pd'
+			? '/Applications/Pd-0.54-1.app/Contents/Resources/bin/pd'
 			: 'pd'),
 		flags: {} // {'nogui': true, 'stderr': true, 'open': './port.pd'}
 	};
